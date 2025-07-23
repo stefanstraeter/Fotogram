@@ -103,7 +103,7 @@ function previousImg() {
 
 function updateModalImage() {
   let modalImage = document.getElementById("modalImage");
-  modalImage.src = `/img/${imageGallery[index]}`;
+  modalImage.src = `./img/${imageGallery[index]}`;
   modalImage.alt = `image ${index + 1}`;
 }
       // function retrieves the <img> element in the modal (id=“modalImage”)
