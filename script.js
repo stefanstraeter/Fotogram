@@ -112,16 +112,25 @@ function updateModalImage() {
 
 
 
-let prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-let currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-65px";
-  }
-  prevScrollpos = currentScrollPos;
-}
+document.addEventListener("DOMContentLoaded", function () {
+  let prevScrollpos = window.pageYOffset || document.documentElement.scrollTop;
+
+  window.addEventListener("scroll", function () {
+    let currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+    const navbar = document.getElementById("navbar");
+
+    if (prevScrollpos > currentScrollPos) {
+      // Hochscrollen → Navbar zeigen
+      navbar.style.top = "0";
+    } else {
+      // Runterscrollen → Navbar ausblenden
+      navbar.style.top = "-65px";
+    }
+
+    prevScrollpos = currentScrollPos;
+  });
+});
       // let prevScrollpos = window.pageYOffset ->  Saves the current scroll position (vertical) when loading the page 
       // window.onscroll = function() { ... } -> This is an event handler: This function is executed every time you scroll on the page
       // let currentScrollPos = window.pageYOffset; -> The new scroll position is saved here as soon as a scroll event occurs
