@@ -1,0 +1,201 @@
+/* === Variables === */
+:root {
+  /* Colors */
+  --White: #ffffff;
+  --Eggshell: #fff0e5;
+  --Eggshell-Modal: #fff0e5f5;
+  --Eggshell-Dark: #baa18f;
+  --Grey-Dark: #2e2e2e;
+  --Black: #1c1c1c;
+
+  /*Typography */
+  --font-family-headlines: "Fraunces", serif;
+  --font-family-base: "Figtree", sans-serif;
+
+  /* Font Weights */
+  --weight-200: 200;
+  --weight-400: 400;
+  --weight-800: 800;
+
+  /* Spacing */
+  --space100: 0.8rem; /* 8px */
+  --space200: 1.6rem; /* 16px */
+  --space250: 2rem; /* 20px */
+  --space300: 2.4rem; /* 24px */
+  --space400: 3.2rem; /* 32px */
+  --space500: 4rem; /* 40px */
+  --space600: 4.8rem; /* 48px */
+  --space700: 5.6rem; /* 56px */
+  --space800: 6.4rem; /* 64px */
+  --space1000: 12.8rem; /* 128px */
+  --space2000: 20rem; /* 200px */
+  --space2500: 30rem; /* 300px */
+}
+
+/* === Base & Typography === */
+/* Mobile First Approach */
+html {
+  font-family: var(--font-family-base);
+  font-size: 62.5%; /* 16px * 0.625 = 10px */
+}
+
+body {
+  font-size: 1.6rem; /* 16px */
+  min-height: 100vh;
+  background-color: var(--Eggshell);
+}
+
+.wrapper {
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: var(--font-family-headlines);
+  font-weight: var(--weight-800);
+  color: var(--Grey-Dark);
+  font-size: clamp(2rem, 10vw, 3.2rem);
+  line-height: 120%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: var(--space200);
+}
+
+p {
+  font-family: var(--font-family-base);
+  color: var(--Grey-Dark);
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  text-align: center;
+}
+
+footer > p {
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  font-weight: var(--weight-400);
+  color: var(--Grey-Dark);
+}
+
+/* === Navbar Section === */
+#navbar {
+  background-color: var(--Eggshell);
+  border-bottom: solid 0.1rem;
+  border-color: var(--Eggshell-Dark);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  z-index: 1;
+  transition: top 0.5s;
+}
+
+.logo {
+  font-family: var(--font-family-headlines);
+  color: var(--Grey-Dark);
+  font-size: 2.4rem;
+  font-weight: var(--weight-800);
+  letter-spacing: -1px;
+  margin: var(--space200);
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.logo:hover {
+  color: var(--Eggshell-Dark);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/* === Main Section === */
+.main-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 50rem;
+  margin: var(--space1000) var(--space200) var(--space600) var(--space200);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Creates as many columns as fit, each at least 200px wide. Items wrap to the next line if needed. */
+  margin: var(--space500) var(--space250);
+  gap: var(--space250);
+}
+
+.image {
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  width: 100%;
+  border-radius: 0.6rem;
+}
+
+.image:hover {
+  box-shadow: -7px 7px 0px -1px var(--Black);
+  transform: translate(5px, -3px);
+}
+
+/* === Modal Section === */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--Eggshell-Modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-image {
+  max-width: 75%;
+  max-height: 75%;
+  transition: 0.3s ease-in-out;
+}
+
+.close-modal-btn {
+  color: var(--Grey-Dark);
+  position: absolute;
+  top: 1rem;
+  right: 2.5rem;
+  font-size: 3.5rem;
+  font-weight: var(--weight-200);
+}
+
+.close-modal-btn:hover {
+  cursor: pointer;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.arrow-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space250);
+}
+
+#leftArrow,
+#rightArrow {
+  font-family: var(--font-family-headlines);
+  font-size: clamp(1rem, 2vw, 1.8rem);
+}
+
+/* === Footer Section === */
+footer {
+  margin: var(--space700) var(--space200);
+}

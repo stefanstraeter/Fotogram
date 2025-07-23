@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png" />
+
+    <title>Fotogram | Stefan Sträter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script defer src="./script.js"></script>
+  </head>
+
+  <body>
+    <div class="modal-overlay" id="modalOverlay" style="display: none">
+      <span class="close-modal-btn cursor" onclick="closeModal()">&times;</span>
+      <img class="modal-image" id="modalImage" src="" alt="Modal Image" />
+      <div class="arrow-container">
+        <button id="leftArrow" onclick="previousImg()">Previous</button>
+        <button id="rightArrow" onclick="nextImg()">Next</button>
+      </div>
+    </div>
+
+    <header id="navbar">
+      <a href="#" class="logo">fotogram</a>
+    </header>
+    <main class="wrapper">
+      <section class="main-text">
+        <h1>A visual archive</h1>
+        <p>Not every moment was perfect - but it was real.</p>
+        <p>A curated collection of fleeting moments and bold memories. Caught through my lens, framed by time.</p>
+      </section>
+      <section class="gallery" id="gallery"></section>
+    </main>
+    <footer>
+      <p>STEFAN STRÄTER 2025.</p>
+      <p>All rights reserved.</p>
+    </footer>
+  </body>
+</html>
