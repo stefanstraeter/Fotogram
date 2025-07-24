@@ -41,6 +41,7 @@ function openModal(src, clickedIndex) {
   let modal = document.getElementById("modalOverlay");
   let modalImage = document.getElementById("modalImage");
 
+
   modalImage.src = src;
   modalImage.alt = src;
 

@@ -165,7 +165,7 @@ footer > p {
 
 .modal-img {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 70vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -178,12 +178,7 @@ footer > p {
   top: 1rem;
   right: 2.5rem;
   font-size: 3.5rem;
-
   font-weight: var(--weight-200);
-}
-
-.close-modal-btn:hover {
-  cursor: pointer;
 }
 
 .next-previous-container {
@@ -191,20 +186,20 @@ footer > p {
   justify-content: space-between;
   margin-left: 2rem;
   margin-right: 2rem;
+  width: clamp(15rem, 75%, 55rem);
   margin-top: var(--space250);
 }
 
 #previousImg,
-#nextImg {
+#nextImg,
+#modalCaption {
   font-family: var(--font-family-headlines);
   font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
-#previousImg:hover {
-  cursor: pointer;
-}
-
-#nextImg:hover {
+#previousImg:hover,
+#nextImg:hover,
+.close-modal-btn:hover {
   cursor: pointer;
 }
 
