@@ -22,22 +22,27 @@
 
   <body>
     <div class="modal-overlay" id="modalOverlay" style="display: none">
-      <span class="close-modal-btn cursor" onclick="closeModal()">&times;</span>
-      <img class="modal-image" id="modalImage" src="" alt="Modal Image" />
-      <div class="arrow-container">
-        <button id="leftArrow" onclick="previousImg()">Previous</button>
-        <button id="rightArrow" onclick="nextImg()">Next</button>
+      <div class="modal-img-container">
+        <span class="close-modal-btn cursor" onclick="closeModal()">&times;</span>
+        <img class="modal-img" id="modalImage" src="" alt="Modal Image" />
+        <div class="next-previous-container">
+          <button id="previousImg" onclick="previousImg()">Previous</button>
+          <button id="nextImg" onclick="nextImg()">Next</button>
+        </div>
       </div>
     </div>
 
     <header id="navbar">
-      <a href="#" class="logo">fotogram</a>
+      <div class="content-limit">
+        <a href="#" class="logo">fotogram</a>
+      </div>
     </header>
     <main class="wrapper">
       <section class="main-text">
         <h1>A visual archive</h1>
-        <p>Not every moment was perfect - but it was real.</p>
-        <p>A curated collection of fleeting moments and bold memories. Caught through my lens, framed by time.</p>
+        <p>
+          Not every moment was perfect - but it was real. A curated collection of fleeting moments and bold memories. Caught through my lens, framed by time.
+        </p>
       </section>
       <section class="gallery" id="gallery"></section>
     </main>

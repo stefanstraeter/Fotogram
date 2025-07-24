@@ -11,68 +11,73 @@ let imageGallery = [
     "Surfer_Costa_Rica.jpg", 
     "Venice_Grand_Canal.jpg",
     "Vietnam_Restaurant.jpg",
-]
+];
 
 let index = 0;
-
 let modalOverlay = document.getElementById("modalOverlay");
+
 
 document.addEventListener('DOMContentLoaded', render);
 
+
 function render() {                                       
   let contentRef = document.getElementById('gallery');
-  for (let index = 0; index < imageGallery.length; index++) {     
-  let filename = imageGallery[index];    
-  contentRef.innerHTML += createImageElement(filename);
+  for (let i = 0; i < imageGallery.length; i++) {     
+    let filename = imageGallery[i];    
+    contentRef.innerHTML += createImageElement(filename, i);
   }
 }
 
-function createImageElement(filename) {
-return `<img onclick="openModal('./img/${filename}')" class="image" 
-              src="./img/${filename}" 
-              alt="${filename}" 
-              loading="lazy" 
-          />`;
+
+function createImageElement(filename, index) {
+  return `<img onclick="openModal('./img/${filename}', ${index})" class="image" 
+                src="./img/${filename}" 
+                alt="${filename}" 
+                loading="lazy" 
+            />`;
 }
 
-
-function openModal(src) {
+function openModal(src, clickedIndex) {
   let modal = document.getElementById("modalOverlay");
   let modalImage = document.getElementById("modalImage");
 
   modalImage.src = src;
   modalImage.alt = src;
 
+  index = clickedIndex; 
   modal.style.display = "flex";
-}
-
-
-function closeModal() {
-  document.getElementById("modalOverlay").style.display = "none";
-  }
-
-
-window.onclick = function(event) {
-  if (event.target == modalOverlay) {
-   document.getElementById("modalOverlay").style.display = "none";
-  }
 }
 
 
 function nextImg(){
   index = (index + 1 + imageGallery.length) % imageGallery.length;
   updateModalImage();
-}
+};
 
 
 function previousImg() {
   index = (index - 1 + imageGallery.length) % imageGallery.length;
   updateModalImage();
-}
+};
 
 
 function updateModalImage() {
   let modalImage = document.getElementById("modalImage");
   modalImage.src = `./img/${imageGallery[index]}`;
   modalImage.alt = `image ${index + 1}`;
-}
+};
+
+
+function closeModal() {
+  document.getElementById("modalOverlay").style.display = "none";
+  };
+
+
+window.onclick = function(event) {
+  if (event.target == modalOverlay) {
+   document.getElementById("modalOverlay").style.display = "none";
+  }
+};
+
+
+
