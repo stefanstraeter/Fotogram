@@ -23,12 +23,12 @@
   <body>
     <div class="modal-overlay" id="modalOverlay" style="display: none">
       <div class="modal-img-container">
-        <span class="close-modal-btn cursor" onclick="closeModal()">&times;</span>
+        <button class="close-modal-btn cursor" onclick="closeModal()">&times;</button>
         <img class="modal-img" id="modalImage" src="" alt="Modal Image" />
       </div>
       <div class="next-previous-container">
-        <button id="previousImg" onclick="previousImg()">Prev</button>
-        <button id="nextImg" onclick="nextImg()">Next</button>
+        <button class="navigation-btn" id="previousImg" onclick="previousImg()">Prev</button>
+        <button class="navigation-btn" id="nextImg" onclick="nextImg()">Next</button>
       </div>
     </div>
 

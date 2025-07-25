@@ -47,15 +47,6 @@ body {
   flex-direction: column;
 }
 
-.wrapper {
-  max-width: 100rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
 h1 {
   font-family: var(--font-family-headlines);
   font-weight: var(--weight-800);
@@ -80,6 +71,15 @@ footer > p {
   color: var(--Grey-Dark);
 }
 
+.wrapper {
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
 /* === Navbar Section === */
 #navbar {
   background-color: var(--Eggshell);
@@ -99,13 +99,6 @@ footer > p {
   font-weight: var(--weight-800);
   letter-spacing: -1px;
   margin: var(--space200);
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-
-.logo:hover {
-  color: var(--Eggshell-Dark);
-  transform: scale(1.05);
 }
 
 .content-limit {
@@ -160,18 +153,35 @@ footer > p {
 }
 
 .modal-img-container {
-  margin-inline: var(--space200);
+  height: 60vh;
+  max-height: 70rem;
+  margin-inline: var(--space250);
 }
 
 .modal-img {
-  max-width: 100%;
-  max-height: 70vh;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transition: 0.3s ease-in-out;
 }
 
+/* Tablet & Desktop Styles */
+@media (min-width: 1150px) {
+  .modal-img-container {
+    height: 70rem;
+    margin-inline: 0;
+  }
+}
+
+/* === Navigation Container === */
+.next-previous-container {
+  display: flex;
+  justify-content: space-around;
+  width: clamp(15rem, 75%, 55rem);
+  margin-top: var(--space250);
+}
+
+/* === Navigation Buttons Container === */
 .close-modal-btn {
   color: var(--Grey-Dark);
   position: absolute;
@@ -179,28 +189,43 @@ footer > p {
   right: 2.5rem;
   font-size: 3.5rem;
   font-weight: var(--weight-200);
+  transition: all 0.2s ease-in-out;
 }
 
-.next-previous-container {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  width: clamp(15rem, 75%, 55rem);
-  margin-top: var(--space250);
+.close-modal-btn:hover {
+  transform: scale(1.3);
 }
 
-#previousImg,
-#nextImg,
-#modalCaption {
+.navigation-btn {
   font-family: var(--font-family-headlines);
   font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
-#previousImg:hover,
-#nextImg:hover,
-.close-modal-btn:hover {
-  cursor: pointer;
+.navigation-btn {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.navigation-btn:hover {
+  color: #000;
+}
+
+.navigation-btn::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--Grey-Dark);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navigation-btn:hover::before {
+  transform: scaleX(1);
 }
 
 /* === Footer Section === */

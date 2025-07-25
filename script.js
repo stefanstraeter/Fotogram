@@ -41,7 +41,6 @@ function openModal(src, clickedIndex) {
   let modal = document.getElementById("modalOverlay");
   let modalImage = document.getElementById("modalImage");
 
-
   modalImage.src = src;
   modalImage.alt = src;
 
@@ -74,11 +73,25 @@ function closeModal() {
   };
 
 
+document.addEventListener("keydown", function (event) {
+  if (modalOverlay.style.display === "flex") {
+    if (event.key === "ArrowRight") {
+      nextImg();
+    } else if (event.key === "ArrowLeft") {
+      previousImg();
+    } else if (event.key === "Escape") {
+      closeModal();
+    }
+  }
+});
+
+
 window.onclick = function(event) {
   if (event.target == modalOverlay) {
    document.getElementById("modalOverlay").style.display = "none";
   }
 };
+
 
 
 
