@@ -37,15 +37,19 @@ function createImageElement(filename, index) {
             />`;
 }
 
+
 function openModal(src, clickedIndex) {
   let modal = document.getElementById("modalOverlay");
   let modalImage = document.getElementById("modalImage");
+  let modalCaption = document.getElementById("modalCaption");
 
   modalImage.src = src;
   modalImage.alt = src;
 
   index = clickedIndex; 
   modal.style.display = "flex";
+
+  modalCaption.textContent = `${index + 1} / ${imageGallery.length}`;
 }
 
 
@@ -64,7 +68,8 @@ function previousImg() {
 function updateModalImage() {
   let modalImage = document.getElementById("modalImage");
   modalImage.src = `./img/${imageGallery[index]}`;
-  modalImage.alt = `image ${index + 1}`;
+  modalImage.alt = `image ${index + 1}`; 
+  modalCaption.textContent = `${index + 1} / ${imageGallery.length}`;
 };
 
 

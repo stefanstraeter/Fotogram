@@ -181,7 +181,7 @@ footer > p {
   margin-top: var(--space250);
 }
 
-/* === Navigation Buttons Container === */
+/* === Navigation & Caption Container === */
 .close-modal-btn {
   color: var(--Grey-Dark);
   position: absolute;
@@ -226,6 +226,11 @@ footer > p {
 
 .navigation-btn:hover::before {
   transform: scaleX(1);
+}
+
+.caption {
+  font-family: var(--font-family-headlines);
+  font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
 /* === Footer Section === */
