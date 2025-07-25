@@ -13,13 +13,18 @@ let imageGallery = [
     "Vietnam_Restaurant.jpg",
 ];
 
+const contentRef = document.getElementById('gallery');
+const modal = document.getElementById("modalOverlay");
+const modalImage = document.getElementById("modalImage");
+const modalCaption = document.getElementById("modalCaption");
+
 let index = 0;
+
 
 document.addEventListener('DOMContentLoaded', render);
 
 
 function render() {                                       
-  let contentRef = document.getElementById('gallery');
   for (let i = 0; i < imageGallery.length; i++) {     
     let filename = imageGallery[i];    
     contentRef.innerHTML += createImageElement(filename, i);
@@ -37,10 +42,6 @@ function createImageElement(filename, index) {
 
 
 function openModal(src, clickedIndex) {
-  let modal = document.getElementById("modalOverlay");
-  let modalImage = document.getElementById("modalImage");
-  let modalCaption = document.getElementById("modalCaption");
-
   modalImage.src = src;
   modalImage.alt = src;
 
@@ -64,7 +65,6 @@ function previousImg() {
 
 
 function updateModalImage() {
-  let modalImage = document.getElementById("modalImage");
   modalImage.src = `./img/${imageGallery[index]}`;
   modalImage.alt = `image ${index + 1}`; 
   modalCaption.textContent = `${index + 1} / ${imageGallery.length}`;
@@ -77,7 +77,7 @@ function closeModal() {
 
 
 document.addEventListener("keydown", function (event) {
-  if (modalOverlay.style.display === "flex") {
+  if (modal.style.display === "flex") {
     if (event.key === "ArrowRight") {
       nextImg();
     } else if (event.key === "ArrowLeft") {
@@ -90,10 +90,11 @@ document.addEventListener("keydown", function (event) {
 
 
 window.onclick = function(event) {
-  if (event.target == modalOverlay) {
+  if (event.target == modal) {
    document.getElementById("modalOverlay").style.display = "none";
   }
 };
+
 
 
 

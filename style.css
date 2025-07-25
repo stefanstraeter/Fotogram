@@ -137,7 +137,6 @@ footer > p {
 
 /* === Modal Section === */
 .modal-overlay {
-  display: none;
   position: fixed;
   z-index: 2;
   left: 0;
@@ -163,6 +162,10 @@ footer > p {
   height: 100%;
   object-fit: contain;
   transition: 0.3s ease-in-out;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Tablet & Desktop Styles */
@@ -199,9 +202,6 @@ footer > p {
 .navigation-btn {
   font-family: var(--font-family-headlines);
   font-size: clamp(1.6rem, 2vw, 2rem);
-}
-
-.navigation-btn {
   position: relative;
   color: #000;
   text-decoration: none;
