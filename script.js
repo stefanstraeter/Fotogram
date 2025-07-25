@@ -14,8 +14,6 @@ let imageGallery = [
 ];
 
 let index = 0;
-let modalOverlay = document.getElementById("modalOverlay");
-
 
 document.addEventListener('DOMContentLoaded', render);
 
